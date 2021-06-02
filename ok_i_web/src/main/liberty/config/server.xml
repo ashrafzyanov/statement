@@ -1,0 +1,21 @@
+<server description="Statement server">
+
+    <featureManager>
+        <feature>jaxrs-2.1</feature>
+        <feature>cdi-2.0</feature>
+        <feature>mpConfig-1.4</feature>
+    </featureManager>
+
+    <applicationManager autoExpand="true" />
+
+    <mpMetrics authentication="false" />
+
+    <variable name="default.http.port" defaultValue="3333"/>
+    <variable name="default.https.port" defaultValue="3443"/>
+    <variable name="app.context.root" defaultValue="/statement"/>
+
+    <httpEndpoint host="*" httpPort="${default.http.port}" httpsPort="${default.https.port}" id="defaultHttpEndpoint"/>
+    <keyStore id="defaultKeyStore" password="OpenLiberty" />
+
+    <webApplication location="io.openliberty.sample.getting.started.war" contextRoot="${app.context.root}"/>
+</server>
